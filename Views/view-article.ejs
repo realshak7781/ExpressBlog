@@ -1,0 +1,41 @@
+<!-- view-article.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Article</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center text-primary display-4 fw-bold">Blog Article</h1>
+
+        <% if (article) { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title text-info"> <%= article.Title %></h4>
+                    <div class="card-subtitle text-muted mb-2"><%= article.Date.toLocaleDateString() %></div>
+                    
+                    <!-- Description Section -->
+                    <div class="card-text mb-4 text-muted fw-bold">Description:</div>
+                    <p class="card-text text-primary fs-5"><%= article.Description %></p>
+
+                    <hr>
+
+                    <!-- Markdown Section -->
+                    <div class="card-text mb-4 text-muted fw-bold">Markdown:</div>
+                    <div class="card-text text-dark fs-5"><%= article.Markdown %></div>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="alert alert-danger mt-4" role="alert">
+                Article not found
+            </div>
+        <% } %>
+
+        <a href="/" class="btn btn-primary mt-4">Back to Homepage</a>
+    </div>
+</body>
+</html>
+
